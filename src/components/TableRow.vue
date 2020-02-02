@@ -5,7 +5,9 @@
     <td>{{rowData.isSitemapsIndex ? 'Sitemaps index' : ''}}</td>
     <td>{{parseDate(rowData.lastSubmitted)}}</td>
     <td>{{parseDate(rowData.lastCheck)}}</td>
-    <td :class="rowData.isPending ? 'td-ok' : 'td-error'">{{rowData.isPending ? 'Success' : `Warnings: ${rowData.warnings}, errors: ${rowData.errors}`}}</td>
+    <td :class="rowData.warnings == 0 && rowData.errors == 0 ? 'td-ok' : 'td-error'">
+      {{rowData.warnings == 0 && rowData.errors == 0 ? 'Success' : `Warnings: ${rowData.warnings}, errors: ${rowData.errors}`}}
+    </td>
     <td>{{rowData.urls}}</td>
     <td><Button view='border'>Recrawl</Button></td>
     <td>

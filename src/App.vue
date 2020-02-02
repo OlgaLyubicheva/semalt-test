@@ -47,11 +47,11 @@ export default {
   data: function () {
     return {sitemapsData: []};
   },
-  mounted: function () {
+  created: function () {
     const vm = this;
-    fetch('./api.json')
+    fetch('https://semalt.tech/dev/api/v1/example/test/')
       .then(response => response.json())
-      .then(source => vm.sitemapsData = source);
+      .then(source => vm.sitemapsData = source.result.sitemap);
   }
 }
 </script>
